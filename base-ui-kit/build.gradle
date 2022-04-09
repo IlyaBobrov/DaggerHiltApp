@@ -1,0 +1,142 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+        dataBinding true
+        viewBinding true
+    }
+    dataBinding {
+        enabled = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerVersion kotlin_version
+    }
+}
+
+dependencies {
+    def accompanist_version = '0.24.1-alpha'
+    def markwon_version = '4.6.2'
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+
+    //Base
+    implementation 'com.google.android.play:core:1.10.3'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    //Compose
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
+    implementation "androidx.activity:activity-compose:1.4.0"
+    implementation "androidx.compose.ui:ui:$compose_version"//
+    implementation "androidx.compose.material:material:$compose_version"//
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.paging:paging-common-ktx:3.1.1'
+    implementation "androidx.paging:paging-compose:1.0.0-alpha14"
+
+    //Tests
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "androidx.arch.core:core-testing:2.1.0" // Test helpers for LiveData
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+    //Coil Images
+    implementation "io.coil-kt:coil-compose:1.4.0"
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+
+    //Glide Images
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+
+    //Lottie animation
+    implementation "com.airbnb.android:lottie:4.1.0"
+    implementation "com.airbnb.android:lottie-compose:4.0.0"
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:5.0.1"
+
+    //accompanist
+    implementation "com.google.accompanist:accompanist-webview:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-placeholder-material:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-placeholder:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-permissions:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-navigation-material:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-insets-ui:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-insets:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-flowlayout:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-drawablepainter:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-appcompat-theme:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-imageloading-core:0.15.0"
+    implementation "com.google.accompanist:accompanist-glide:0.15.0"
+    implementation "com.google.accompanist:accompanist-coil:0.15.0"
+    implementation "com.google.accompanist:accompanist-picasso:0.6.2"
+
+    //Markdown
+    implementation "io.noties.markwon:core:$markwon_version"
+    implementation "io.noties.markwon:editor:$markwon_version"
+    implementation "io.noties.markwon:ext-latex:$markwon_version"
+    implementation "io.noties.markwon:ext-strikethrough:$markwon_version"
+    implementation "io.noties.markwon:ext-tables:$markwon_version"
+    implementation "io.noties.markwon:ext-tasklist:$markwon_version"
+    implementation "io.noties.markwon:html:$markwon_version"
+    implementation "io.noties.markwon:image-coil:$markwon_version"
+    implementation "io.noties.markwon:image-glide:$markwon_version"
+    implementation "io.noties.markwon:image:$markwon_version"
+    implementation "io.noties.markwon:linkify:$markwon_version"
+    implementation "io.noties.markwon:syntax-highlight:$markwon_version"
+    kapt 'io.noties:prism4j-bundler:2.0.0'
+    implementation "com.atlassian.commonmark:commonmark:0.15.2"
+
+    //xml DateRangePicker
+//    implementation "com.github.wisnukurniawan:date-time-range-picker-android:1.0.10"
+
+    //Phone transform
+    implementation "com.googlecode.libphonenumber:libphonenumber:8.12.32"
+
+    //Image Cropper
+//    implementation("com.github.CanHub:Android-Image-Cropper:4.1.0")
+//    implementation 'id.zelory:compressor:3.0.1'
+}
