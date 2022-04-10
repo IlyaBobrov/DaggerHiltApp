@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ilya/AndroidStudioProjects/DaggerMultiModuleApp/daggerapp/src/main/res/layout/activity_main_dagger.xml" value="0.3484375" />
         <entry key="..\:/Users/ilya/AndroidStudioProjects/DaggerMultiModuleApp/featureDagger/src/main/res/layout/activity_dagger_inner.xml" value="0.3484375" />
+        <entry key="..\:/Users/ilya/AndroidStudioProjects/DaggerMultiModuleApp/featureDagger/src/main/res/layout/chat_fragment.xml" value="0.3569230769230769" />
+        <entry key="..\:/Users/ilya/AndroidStudioProjects/DaggerMultiModuleApp/featureDagger/src/main/res/layout/media_fragment.xml" value="0.3569230769230769" />
         <entry key="..\:/Users/ilya/AndroidStudioProjects/DaggerMultiModuleApp/featureHilt/src/main/res/layout/activity_hilt_inner.xml" value="0.3484375" />
       </map>
     </option>

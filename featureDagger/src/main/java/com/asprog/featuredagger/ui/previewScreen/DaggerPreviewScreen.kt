@@ -32,7 +32,7 @@ fun DaggerPreviewScreen() {
         Log.e("TAG", "${it.resultCode}")
     }
 
-    Scaffold(topBar = { BaseTopBar(titleString = "Hilt preview screen") }) { paddingValues ->
+    Scaffold(topBar = { BaseTopBar(titleString = "Dagger preview screen") }) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)

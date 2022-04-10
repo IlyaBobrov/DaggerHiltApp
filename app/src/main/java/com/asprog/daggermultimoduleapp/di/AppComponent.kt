@@ -2,7 +2,7 @@ package com.asprog.daggermultimoduleapp.di
 
 import android.app.Application
 import com.asprog.daggermultimoduleapp.App
-import com.asprog.featuredagger.di.AppDependency
+import com.asprog.featuredagger.di.deps.AppDependency
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 )
 interface AppComponent : AppDependency {
 
-    override fun application(): Application
+    override val application: Application
 
     @Component.Builder
     interface Builder {
