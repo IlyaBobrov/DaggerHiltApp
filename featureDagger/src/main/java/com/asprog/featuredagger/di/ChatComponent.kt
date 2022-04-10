@@ -37,11 +37,14 @@ internal interface ChatComponent {
     fun inject(mediaFragment: MediaFragment)
 }
 
-@Module
+@Module(includes = [InnerScreenViewModelsModule::class])
 abstract class ViewModelModule {
     @Binds
     internal abstract fun bindViewModelFactory(factory: MyViewModelFactory): ViewModelProvider.Factory
+}
 
+@Module
+abstract class InnerScreenViewModelsModule {
     @Binds
     @IntoMap
     @ViewModelKey(ChatViewModel::class)
@@ -51,7 +54,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MediaViewModel::class)
     abstract fun mediaViewModel(viewModel: MediaViewModel): ViewModel
-
 }
 
 @Module
